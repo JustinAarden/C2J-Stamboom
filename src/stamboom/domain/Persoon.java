@@ -31,10 +31,17 @@ public class Persoon {
      *
      */
     Persoon(int persNr, String[] vnamen, String anaam, String tvoegsel,
-            Calendar gebdat, String gebplaats, Geslacht g, Gezin ouderlijkGezin) {
+            Calendar gebdat, String gebplaats, Geslacht g, Gezin ouderlijkgezin) {
         //todo opgave 1
-        throw new UnsupportedOperationException();
-    }
+        nr = persNr;
+        voornamen = vnamen;
+        achternaam = anaam;
+        tussenvoegsel = tvoegsel;
+        gebDat = gebdat;
+        gebPlaats = gebplaats;
+        geslacht = g;
+        ouderlijkGezin = ouderlijkgezin;
+        alsOuderBetrokkenIn = null;    }
 
     // ********methoden****************************************
     /**
@@ -72,9 +79,15 @@ public class Persoon {
      * @return de voorletters van de voornamen; elke voorletter wordt gevolgd
      * door een punt
      */
-    public String getInitialen() {
+public String getInitialen() {
         //todo opgave 1
-        return null;
+        String retInitialen = null;
+        
+        for (int i = 0; i < voornamen.length; i++)
+        {
+            retInitialen = voornamen[i].toUpperCase().charAt(0) + ".";
+        }
+        return retInitialen;
     }
 
     /**
@@ -83,9 +96,15 @@ public class Persoon {
      * afgesloten door de achternaam; initialen, voorzetsel en achternaam zijn
      * gescheiden door een spatie
      */
-    public String getNaam() {
+public String getNaam() {
         //todo opgave 1
-        return null;
+        String retNaam = null;
+        
+        retNaam = getInitialen() + " " +
+                  tussenvoegsel + " " +
+                  achternaam;
+        
+        return retNaam;
     }
 
     /**
@@ -149,7 +168,7 @@ public class Persoon {
      * @param ouderlijkGezin
      */
     void setOuders(Gezin ouderlijkGezin) {
-        //todo opgave 1
+        this.ouderlijkGezin = ouderlijkGezin;
     }
 
     /**
@@ -201,7 +220,16 @@ public class Persoon {
      */
     public Gezin heeftOngehuwdGezinMet(Persoon andereOuder) {
         //todo opgave 1
-        return null;
+        if(ouderlijkGezin.getHuwelijksdatum() == null || ouderlijkGezin.getScheidingsdatum() != null)
+        {
+            // niet gehuwd
+            return ouderlijkGezin;
+        }
+        else
+        {
+            //gehuwd
+            return null;
+        }
     }
 
     /**
@@ -243,9 +271,12 @@ public class Persoon {
      * @param datum
      * @return true als persoon op datum gescheiden is, anders false
      */
-    public boolean isGescheidenOp(Calendar datum) {
+public boolean isGescheidenOp(Calendar datum) {
         //todo opgave 1
-        return false;
+        if ( this.ouderlijkGezin.getScheidingsdatum() == datum)
+            return true;
+        else
+            return false;
     }
 
     /**
