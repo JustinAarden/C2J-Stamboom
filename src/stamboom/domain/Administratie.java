@@ -68,7 +68,68 @@ public class Administratie {
         }
 
         //todo opgave 1
-        return null;
+        List<String> voornamenVal = null;
+        String[] voornamenRes = null;
+        String achternaamVal = null;
+        String tussenvoegselVal = null;
+        String geboorteplaatsVal = null;
+        Persoon newPersoon = null;
+        int nr = 0;
+        
+        for (int i = 0; i < vnamen.length; i++)
+        {
+            voornamenVal.add(CapitalizeString(vnamen[i]));
+        }
+        
+        tussenvoegselVal = tvoegsel.toLowerCase();
+        achternaamVal = CapitalizeString(anaam);
+        geboorteplaatsVal = CapitalizeString(gebplaats);
+        voornamenVal.toArray(voornamenRes);
+        
+        if(!this.personen.isEmpty())
+        {
+            nr = this.personen.get(this.personen.size()).getNr() + 1;
+        }
+        
+        for (int i = 0; i < this.personen.size(); i++)
+        {
+            Persoon currentPerson = this.personen.get(i);
+            if(currentPerson.getAchternaam() == achternaamVal &&
+               //currentPerson.getVoornamen() == voornamenRes &&
+               currentPerson.getGebPlaats() == geboorteplaatsVal &&
+               currentPerson.getGebDat() == gebdat)
+            {
+                return null;
+            }
+        }
+        
+        newPersoon = new Persoon(nr, voornamenRes, achternaamVal, tussenvoegselVal, gebdat, geboorteplaatsVal, geslacht, ouderlijkGezin);
+        
+        this.personen.add(newPersoon);
+        
+        return newPersoon;
+    }
+    
+    public String CapitalizeString(String str)
+    {
+        String tempVNaam = str.toLowerCase();
+        tempVNaam = tempVNaam.substring(0, 1).toUpperCase() + tempVNaam.substring(1, tempVNaam.length());
+        
+        while (tempVNaam.contains("  "))
+        {
+            tempVNaam.replace("  ", " ");
+        }
+        
+        if(tempVNaam.startsWith(" "))
+        {
+            tempVNaam = tempVNaam.substring(1, tempVNaam.length());
+        }
+        
+        if(tempVNaam.endsWith(" "))
+        {
+            tempVNaam = tempVNaam.substring(0, tempVNaam.length()-1);
+        }
+        return tempVNaam;
     }
 
     /**
@@ -175,6 +236,7 @@ public class Administratie {
      */
     public Gezin addHuwelijk(Persoon ouder1, Persoon ouder2, Calendar huwdatum) {
         //todo opgave 1
+        
         return null;
     }
 
@@ -203,6 +265,13 @@ public class Administratie {
     public Persoon getPersoon(int nr) {
         //todo opgave 1
         //aanname: er worden geen personen verwijderd
+        for(int i = 0; i < this.personen.size(); i++)
+        {
+            if (this.personen.get(i).getNr() == nr)
+            {
+                return this.personen.get(i);
+            }
+        }
         return null;
     }
 
@@ -213,7 +282,17 @@ public class Administratie {
      */
     public ArrayList<Persoon> getPersonenMetAchternaam(String achternaam) {
         //todo opgave 1
-        return null;
+        List<Persoon> personList = getPersonen();
+        ArrayList<Persoon> getPersonWithLastName = null;
+        for (int i = 0; i < personList.size(); i++ )
+        {
+            if (personList.get(i).getAchternaam() == achternaam)
+            {
+                getPersonWithLastName.add(personList.get(i));
+            }
+        }
+        
+        return getPersonWithLastName;
     }
 
     /**
@@ -222,7 +301,7 @@ public class Administratie {
      */
     public List<Persoon> getPersonen() {
         // todo opgave 1
-        return null;
+        return this.personen;
     }
 
     /**
@@ -239,7 +318,31 @@ public class Administratie {
     public Persoon getPersoon(String[] vnamen, String anaam, String tvoegsel,
             Calendar gebdat, String gebplaats) {
         //todo opgave 1
+        Persoon retPerson = null;
+        
+        for (int i = 0; i < this.personen.size(); i++)
+        {
+            Persoon currPerson = this.personen.get(i);
+            if( currPerson.getAchternaam() == anaam &&
+                    currPerson.getGebDat() == gebdat &&
+                    currPerson.getTussenvoegsel() == tvoegsel &&
+                    currPerson.getGebPlaats() == gebplaats &&
+                    currPerson.getVoornamen() == formatVoornamen(vnamen))
+            {
+                return currPerson;
+            }
+                    
+        }
+        
         return null;
+    }
+    
+    public String formatVoornamen(String[] s2) {
+        StringBuilder init = new StringBuilder();
+        for (String s : s2) {
+            init.append(s).append(' ');
+        }
+        return init.toString().trim();
     }
 
     /**
@@ -247,7 +350,7 @@ public class Administratie {
      * @return de geregistreerde gezinnen
      */
     public List<Gezin> getGezinnen() {
-        return null;
+        return this.gezinnen;
     }
 
     /**

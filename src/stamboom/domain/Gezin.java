@@ -164,6 +164,20 @@ public class Gezin {
      */
     public String beschrijving() {
         //todo opgave 1
+        String retVal = null;
+        String conText = "; kinderen:";
+        retVal = this.nr + "; " +
+                 this.ouder1.getNaam() + "; " +
+                 this.ouder2.getNaam();
+        if (!this.kinderen.isEmpty())
+        {
+            retVal += conText;
+            for (int i = 0; i < this.kinderen.size(); i++)
+            {
+                retVal += " -" + this.kinderen.get(i);
+            }
+        }
+        
         return null;
     }
 
@@ -191,7 +205,10 @@ public class Gezin {
      */
     public boolean isHuwelijkOp(Calendar datum) {
         //todo opgave 1
-        return false;
+        if (this.huwelijksdatum == datum)
+            return true;
+        else
+            return false;
     }
 
     /**
