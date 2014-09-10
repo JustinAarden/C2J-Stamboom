@@ -226,6 +226,13 @@ public class Gezin {
      */
     public boolean heeftGescheidenOudersOp(Calendar datum) {
         //todo opgave 1
+         if(this.scheidingsdatum == datum)
+        {
+        return true;
+        }
+        else
+        {
         return false;
+        }
     }
 }
