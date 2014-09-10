@@ -146,7 +146,14 @@ public class Gezin {
      */
     boolean setHuwelijk(Calendar datum) {
         //todo opgave 1
-        return false;
+        if(this.huwelijksdatum == null || this.scheidingsdatum.before(datum))
+        {
+            this.huwelijksdatum = datum;
+            this.scheidingsdatum = null;
+            return true;
+        }
+        else
+            return false;
     }
 
     /**
