@@ -41,7 +41,7 @@ public class Persoon {
         gebPlaats = gebplaats;
         geslacht = g;
         ouderlijkGezin = ouderlijkgezin;
-        alsOuderBetrokkenIn = null;    }
+        alsOuderBetrokkenIn = new ArrayList<Gezin>();    }
 
     // ********methoden****************************************
     /**
@@ -220,16 +220,26 @@ public String getNaam() {
      */
     public Gezin heeftOngehuwdGezinMet(Persoon andereOuder) {
         //todo opgave 1
-        if(ouderlijkGezin.getHuwelijksdatum() == null || ouderlijkGezin.getScheidingsdatum() != null)
+        if(ouderlijkGezin.getOuder1() == this)// || ouderlijkGezin.getScheidingsdatum() != null)
         {
-            // niet gehuwd
-            return ouderlijkGezin;
+            if(ouderlijkGezin.getOuder2() == andereOuder && ouderlijkGezin.isOngehuwd())
+            {
+                // niet gehuwd
+                return ouderlijkGezin;
+                
+            }
         }
-        else
+        else if(ouderlijkGezin.getOuder2() == this)
         {
-            //gehuwd
-            return null;
+            if(ouderlijkGezin.getOuder1() == andereOuder && ouderlijkGezin.isOngehuwd())
+            {
+                // niet gehuwd
+                return ouderlijkGezin;
+            }
         }
+        
+        //gehuwd
+        return null;
     }
 
     /**

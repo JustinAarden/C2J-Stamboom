@@ -18,8 +18,12 @@ public class Administratie {
      */
     public Administratie() {
         //todo opgave 1
-        personen = null;
-        gezinnen = null;
+        nextGezinsNr=1;
+        nextPersNr=1;
+        personen = new ArrayList<Persoon>();
+        gezinnen = new ArrayList<Gezin>();
+        //personen = null;
+        //gezinnen = null;
     }
 
     //**********************methoden****************************************
@@ -68,8 +72,8 @@ public class Administratie {
         }
 
         //todo opgave 1
-        List<String> voornamenVal = null;
-        String[] voornamenRes = null;
+        List<String> voornamenVal = new ArrayList<String>();
+        String[] voornamenRes;
         String achternaamVal = null;
         String tussenvoegselVal = null;
         String geboorteplaatsVal = null;
@@ -84,18 +88,18 @@ public class Administratie {
         tussenvoegselVal = tvoegsel.toLowerCase();
         achternaamVal = CapitalizeString(anaam);
         geboorteplaatsVal = CapitalizeString(gebplaats);
-        voornamenVal.toArray(voornamenRes);
+        voornamenRes = voornamenVal.toArray(new String[0]);
         
         if(!this.personen.isEmpty())
         {
-            nr = this.personen.get(this.personen.size()).getNr() + 1;
+            nr = this.personen.get(this.personen.size()-1).getNr() + 1;
         }
         
         for (int i = 0; i < this.personen.size(); i++)
         {
             Persoon currentPerson = this.personen.get(i);
             if(currentPerson.getAchternaam() == achternaamVal &&
-               //currentPerson.getVoornamen() == voornamenRes &&
+               currentPerson.getVoornamen() == this.formatVoornamen(voornamenRes) &&
                currentPerson.getGebPlaats() == geboorteplaatsVal &&
                currentPerson.getGebDat() == gebdat)
             {
@@ -103,10 +107,10 @@ public class Administratie {
             }
         }
         
-        newPersoon = new Persoon(nr, voornamenRes, achternaamVal, tussenvoegselVal, gebdat, geboorteplaatsVal, geslacht, ouderlijkGezin);
+        newPersoon = new Persoon(nextPersNr, voornamenRes, achternaamVal, tussenvoegselVal, gebdat, geboorteplaatsVal, geslacht, ouderlijkGezin);
         
         this.personen.add(newPersoon);
-        
+        nextPersNr += 1;
         return newPersoon;
     }
     
@@ -236,8 +240,46 @@ public class Administratie {
      */
     public Gezin addHuwelijk(Persoon ouder1, Persoon ouder2, Calendar huwdatum) {
         //todo opgave 1
+        Gezin newFamily = null;
+        for(Persoon p : personen){
+            if(p.equals(ouder1))
+            {
+                if(ouder1.heeftOngehuwdGezinMet(ouder2) != null)
+                        ouder1.heeftOngehuwdGezinMet(ouder2).isHuwelijkOp(huwdatum);
+                else
+                {
+                    newFamily = new Gezin(this.nextGezinsNr, ouder1, ouder2);
+                    newFamily.setHuwelijk(huwdatum);
+                    
+                    ouder1.wordtOuderIn(newFamily);
+                    ouder2.wordtOuderIn(newFamily);
+                    
+                    this.gezinnen.add(newFamily);
+                    this.nextGezinsNr++;
+                }
+            }
+        }
+        /*
+        for(int i = 0; 0 < this.gezinnen.size(); i++)
+        {
+            Persoon currParent1 = this.gezinnen.get(i).getOuder1();
+            Persoon currParent2 = this.gezinnen.get(i).getOuder2();
+            
+            if(currParent1 == ouder1 || currParent1 == ouder2)
+                return null;
+            if(currParent2 == ouder1 || currParent2 == ouder2)
+                return null;
+            if(ouder1 == ouder2)
+                return null;
+        }
         
-        return null;
+        newFamily = new Gezin(this.nextGezinsNr, ouder1, ouder2);
+        newFamily.setHuwelijk(huwdatum);
+        this.nextGezinsNr++;
+        
+        this.gezinnen.add(newFamily);
+        */
+        return newFamily;
     }
 
     /**
