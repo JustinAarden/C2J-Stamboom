@@ -220,27 +220,48 @@ public String getNaam() {
      */
     public Gezin heeftOngehuwdGezinMet(Persoon andereOuder) {
         //todo opgave 1
-        if(ouderlijkGezin.getOuder1() == this)// || ouderlijkGezin.getScheidingsdatum() != null)
-        {
-            if(ouderlijkGezin.getOuder2() == andereOuder && ouderlijkGezin.isOngehuwd())
-            {
-                // niet gehuwd
-                return ouderlijkGezin;
-                
+        Gezin gezin = null;
+        if (andereOuder != null){
+            for(Gezin g : alsOuderBetrokkenIn){
+                if(g.getOuder1().equals(andereOuder) || (g.getOuder2() != null && g.getOuder2().equals(andereOuder))){
+                    if(g.isOngehuwd()){
+                        gezin = g;
+                }
+               }
             }
         }
-        else if(ouderlijkGezin.getOuder2() == this)
+        else
         {
-            if(ouderlijkGezin.getOuder1() == andereOuder && ouderlijkGezin.isOngehuwd())
-            {
-                // niet gehuwd
-                return ouderlijkGezin;
+            for 
+            (Gezin g 
+            : 
+            alsOuderBetrokkenIn){
+            Persoon p;
+            if (g.getOuder1().equals(this)) {
+             p = g.getOuder2();
+                if (p.heeftOngehuwdGezinMet(this) != 
+                    null){
+                        gezin = p.heeftOngehuwdGezinMet(this); 
+                }
+            }
+            else if 
+                (g.getOuder2().equals(this)) {
+                    p = g.getOuder1();
+                    if (p.heeftOngehuwdGezinMet(this) !=  null) {
+                    gezin =  p.heeftOngehuwdGezinMet(this);
+                    }
+            }
             }
         }
+
+        return gezin;
+    }      
+        
+        
         
         //gehuwd
-        return null;
-    }
+
+
 
     /**
      *
