@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="1" failures="0" hostname="LT01-JUSTIN" name="stamboom.domain.StamboomTest" skipped="0" tests="1" time="0.059" timestamp="2014-09-14T09:55:10">
+<testsuite errors="0" failures="1" hostname="LT01-JUSTIN" name="stamboom.domain.StamboomTest" skipped="0" tests="1" time="0.057" timestamp="2014-09-16T12:32:59">
   <properties>
     <property name="netbeans.autoupdate.country" value="NL" />
     <property name="javafx.binarycss" value="false" />
@@ -49,7 +49,7 @@
     <property name="user.name" value="Justin" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.StamboomTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\test\results\TEST-stamboom.domain.StamboomTest.xml crashfile=C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\junitvmwatcher3524684812095261993.properties propsfile=C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\junit392587486169551950.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.StamboomTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\test\results\TEST-stamboom.domain.StamboomTest.xml crashfile=C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\junitvmwatcher7670676189278554448.properties propsfile=C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\junit6520136255829618674.properties" />
     <property name="auxiliary.org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.wrapAnnotations" value="WRAP_NEVER" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
@@ -84,7 +84,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="C:\Users\Justin\Documents\GitHub\C2J-Stamboom\null2132265169" />
+    <property name="javac.includesfile.binary" value="C:\Users\Justin\Documents\GitHub\C2J-Stamboom\null856599475" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/plugin.jar:build/classes" />
@@ -169,6 +169,7 @@
     <property name="libs.PostgreSQLDriver.javadoc" value="" />
     <property name="javafx.main.class" value="stamboom.gui.StamboomGUI" />
     <property name="libs.MySQLDriver.maven-pom" value="" />
+    <property name="nb.useSwingHtmlRendering" value="true" />
     <property name="javafx.native.bundling.enabled" value="false" />
     <property name="libs.hibernate4-persistence.javadoc" value="" />
     <property name="javafx.application.implementation.version" value="1.0" />
@@ -209,6 +210,7 @@
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="endorsed.classpath.cmd.line.arg" value="" />
     <property name="junit.available" value="true" />
+    <property name="org.openide.awt.ActionReference.completion" value="org.netbeans.modules.apisupport.project.layers.PathCompletions" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_11\jre\bin" />
     <property name="have.sources" value="true" />
     <property name="debug.classpath" value="dist/StamboomProject.jar:C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/plugin.jar" />
@@ -295,8 +297,8 @@
     <property name="debug-transport-by-os" value="dt_shmem" />
     <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="libs.MySQLDriver.src" value="" />
-    <property name="java.runtime.version" value="1.8.0_11-b12" />
     <property name="build.test.results.dir" value="build/test/results" />
+    <property name="java.runtime.version" value="1.8.0_11-b12" />
     <property name="javafx.run.inbrowser" value="&lt;Default System Browser&gt;" />
     <property name="native.bundling.enabled" value="false" />
     <property name="javafx.deploy.disable.proxy" value="false" />
@@ -318,8 +320,8 @@
     <property name="os.version" value="6.3" />
     <property name="application.args" value="" />
     <property name="manifest.custom.permissions" value="" />
-    <property name="main.class.available" value="true" />
     <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="main.class.available" value="true" />
     <property name="sun.desktop" value="windows" />
     <property name="libs.hibernate4-persistence.src" value="" />
     <property name="auxiliary.org-netbeans-spi-editor-hints-projects.perProjectHintSettingsFile" value="nbproject/cfg_hints.xml" />
@@ -346,21 +348,18 @@
     <property name="libs.CopyLibs.src" value="" />
     <property name="build.dir" value="build" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.2 compiled on July 8 2013" />
-    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="file.encoding" value="Cp1252" />
-    <property name="jdkBug6558476" value="false" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="javadoc.nonavbar" value="false" />
+    <property name="jdkBug6558476" value="false" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="javafx.deploy.installpermanently" value="false" />
   </properties>
   <testcase classname="stamboom.domain.StamboomTest" name="testStamboom" time="0.009">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at stamboom.domain.Persoon.heeftOngehuwdGezinMet(Persoon.java:223)
-	at stamboom.domain.Administratie.ongehuwdGezinBestaat(Administratie.java:224)
-	at stamboom.domain.Administratie.addOngehuwdGezin(Administratie.java:161)
-	at stamboom.domain.StamboomTest.testStamboom(StamboomTest.java:34)
-</error>
+    <failure message="afmeting boom onjuist expected:&lt;8&gt; but was:&lt;-1&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: afmeting boom onjuist expected:&lt;8&gt; but was:&lt;-1&gt;
+	at stamboom.domain.StamboomTest.testStamboom(StamboomTest.java:52)
+</failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

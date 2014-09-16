@@ -305,13 +305,9 @@ public class Administratie {
      * geretourneerd
      */
     public Persoon getPersoon(int nr) {
-        //todo opgave 1
-        //aanname: er worden geen personen verwijderd
-        for(int i = 0; i < this.personen.size(); i++)
-        {
-            if (this.personen.get(i).getNr() == nr)
-            {
-                return this.personen.get(i);
+        for (Persoon personen1 : this.personen) {
+            if (personen1.getNr() == nr) {
+                return personen1;
             }
         }
         return null;
@@ -324,13 +320,18 @@ public class Administratie {
      */
     public ArrayList<Persoon> getPersonenMetAchternaam(String achternaam) {
         //todo opgave 1
-        List<Persoon> personList = getPersonen();
-        ArrayList<Persoon> getPersonWithLastName = null;
-        for (int i = 0; i < personList.size(); i++ )
-        {
-            if (personList.get(i).getAchternaam() == achternaam)
+         ArrayList<Persoon> getPersonWithLastName = null;
+            List<Persoon> personList;     
+            personList = getPersonen();
+        
+        for (Persoon persoon: personList) {
+            if (persoon.getAchternaam().equals(achternaam)) {
+                getPersonWithLastName.add(persoon);
+
+            }
+            else
             {
-                getPersonWithLastName.add(personList.get(i));
+                
             }
         }
         

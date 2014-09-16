@@ -71,7 +71,7 @@ public class DomeinTest extends TestCase{
                 "", new GregorianCalendar(1980, Calendar.APRIL, 23), "Venray", pietEnTeuntje);
         assertEquals("ouderlijk gezin onjuist", pietEnTeuntje, jan.getOuderlijkGezin());
 
-        /* de persoon
+        /* de persoonx
          * krijgt een uniek nummer toegewezen de persoon is voortaan ook bij het
          * ouderlijk gezin bekend. 
          */

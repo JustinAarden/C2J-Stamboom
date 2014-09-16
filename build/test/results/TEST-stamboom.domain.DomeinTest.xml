@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="1" failures="10" hostname="LT01-JUSTIN" name="stamboom.domain.DomeinTest" skipped="0" tests="11" time="0.106" timestamp="2014-09-16T12:12:59">
+<testsuite errors="1" failures="0" hostname="LT01-JUSTIN" name="stamboom.domain.DomeinTest" skipped="0" tests="1" time="0.0" timestamp="2014-09-16T15:12:41">
   <properties>
     <property name="netbeans.autoupdate.country" value="NL" />
     <property name="javafx.binarycss" value="false" />
@@ -12,7 +12,7 @@
     <property name="ant.core.lib" value="C:\Program Files\NetBeans 8.0\extide\ant\lib\ant.jar" />
     <property name="javadoc.windowtitle" value="" />
     <property name="javafx.preloader.enabled" value="false" />
-    <property name="user.dir" value="C:\Users\Justin\Documents\GitHub\C2J-Stamboom" />
+    <property name="user.dir" value="C:\Program Files\NetBeans 8.0" />
     <property name="java.vm.version" value="25.11-b03" />
     <property name="javafx.native.bundling.type" value="none" />
     <property name="libs.MySQLDriver.classpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar" />
@@ -35,7 +35,8 @@
     <property name="have.tests" value="true" />
     <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
     <property name="libs.javac-api.javadoc" value="" />
-    <property name="os.name" value="Windows 8.1" />
+    <property name="os.name" value="Windows 8" />
+    <property name="test.class" value="stamboom.domain.DomeinTest" />
     <property name="libs.beans-binding.classpath" value="C:\Program Files\NetBeans 8.0\java\modules\ext\beansbinding-1.2.1.jar" />
     <property name="ap.proc.none.internal" value="" />
     <property name="libs.JWSAntTasks.maven-pom" value="" />
@@ -49,7 +50,6 @@
     <property name="user.name" value="Justin" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner stamboom.domain.DomeinTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\test\results\TEST-stamboom.domain.DomeinTest.xml crashfile=C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\junitvmwatcher3546955591369861279.properties propsfile=C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\junit1847187088229627637.properties" />
     <property name="auxiliary.org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.wrapAnnotations" value="WRAP_NEVER" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
@@ -69,7 +69,6 @@
     <property name="build.compiler.emacs" value="true" />
     <property name="javafx.deploy.includeDT" value="true" />
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_11\jre\lib\endorsed" />
-    <property name="test.includes" value="stamboom/domain/DomeinTest.java" />
     <property name="netbeans.dynamic.classpath" value="C:\Program Files\NetBeans 8.0\platform\core\core.jar;C:\Program Files\NetBeans 8.0\platform\core\org-openide-filesystems.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\core_ja.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\core_pt_BR.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\core_ru.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\core_zh_CN.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\org-openide-filesystems_ja.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\org-openide-filesystems_ru.jar;C:\Program Files\NetBeans 8.0\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Program Files\NetBeans 8.0\nb\core\org-netbeans-upgrader.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb_ja.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb_pt_BR.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb_ru.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\core_nb_zh_CN.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\org-netbeans-upgrader_ja.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\org-netbeans-upgrader_pt_BR.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\org-netbeans-upgrader_ru.jar;C:\Program Files\NetBeans 8.0\nb\core\locale\org-netbeans-upgrader_zh_CN.jar" />
     <property name="jnlp.enabled" value="false" />
     <property name="java.vm.specification.version" value="1.8" />
@@ -84,7 +83,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="C:\Users\Justin\Documents\GitHub\C2J-Stamboom\null2106379628" />
+    <property name="javac.includesfile.binary" value="C:\Users\Justin\Documents\GitHub\C2J-Stamboom\null1961954616" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/plugin.jar:build/classes" />
@@ -94,11 +93,10 @@
     <property name="user.variant" value="" />
     <property name="libs.eclipselinkmodelgen.classpath" value="C:\Program Files\NetBeans 8.0\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.modelgen_2.5.1.v20130918-f2b9fc5.jar" />
     <property name="auxiliary.org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.keepGettersAndSettersTogether" value="true" />
-    <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="libs.junit.classpath" value="C:\Program Files\NetBeans 8.0\java\modules\ext\junit-3.8.2.jar" />
     <property name="libs.hibernate4-persistencemodelgen.javadoc" value="" />
     <property name="libs.jaxb.javadoc" value="C:\Program Files\NetBeans 8.0\ide\docs\jaxb-api-doc.zip" />
-    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="true" />
+    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="javac.includes.binary" value="C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\test\classes\stamboom\domain\DomeinTest.class" />
     <property name="ant.home" value="C:\Program Files\NetBeans 8.0\extide\ant" />
     <property name="libs.junit_4.src" value="C:\Program Files\NetBeans 8.0\java\docs\junit-4.10-sources.jar" />
@@ -106,7 +104,7 @@
     <property name="libs.testng.classpath" value="C:\Program Files\NetBeans 8.0\platform\modules\ext\testng-6.8.1-dist.jar" />
     <property name="libs.absolutelayout.maven-pom" value="" />
     <property name="ant.java.version" value="1.8" />
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_11\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\idmu\common;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\executables;C:\Program Files (x86)\Bitvise SSH Client;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files\TortoiseSVN\bin;." />
+    <property name="java.library.path" value="C:\Program Files\NetBeans 8.0\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\idmu\common;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\executables;C:\Program Files (x86)\Bitvise SSH Client;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files\TortoiseSVN\bin;." />
     <property name="javadoc.author" value="false" />
     <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
     <property name="libs.spring-framework400.src" value="" />
@@ -132,7 +130,7 @@
     <property name="manifest.available" value="true" />
     <property name="libs.spring-framework300.maven-pom" value="" />
     <property name="run.test.classpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar:C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/javaws.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/deploy.jar:C:\Program Files\Java\jdk1.8.0_11\jre/lib/plugin.jar:build/classes:build/test/classes" />
-    <property name="ant.project.invoked-targets" value="test-single" />
+    <property name="ant.project.invoked-targets" value="debug-test" />
     <property name="test.binaryexcludes" value="" />
     <property name="libs.swing-layout.javadoc" value="C:\Program Files\NetBeans 8.0\platform\docs\swing-layout-1.0.4-doc.zip" />
     <property name="sun.java2d.dpiaware" value="true" />
@@ -140,6 +138,7 @@
     <property name="https.nonProxyHosts" value="localhost|127.0.0.1|LT01-JUSTIN" />
     <property name="libs.PostgreSQLDriver.maven-pom" value="" />
     <property name="java.class.version" value="52.0" />
+    <property name="jpda.address" value="javadebug" />
     <property name="libs.hibernate4-persistencemodelgen.maven-pom" value="" />
     <property name="libs.eclipselink.javadoc" value="" />
     <property name="user.properties.file" value="C:\Users\Justin\AppData\Roaming\NetBeans\8.0\build.properties" />
@@ -170,6 +169,7 @@
     <property name="libs.PostgreSQLDriver.javadoc" value="" />
     <property name="javafx.main.class" value="stamboom.gui.StamboomGUI" />
     <property name="libs.MySQLDriver.maven-pom" value="" />
+    <property name="nb.useSwingHtmlRendering" value="true" />
     <property name="javafx.native.bundling.enabled" value="false" />
     <property name="libs.hibernate4-persistence.javadoc" value="" />
     <property name="javafx.application.implementation.version" value="1.0" />
@@ -295,8 +295,8 @@
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
     <property name="default.javac.source" value="1.8" />
     <property name="debug-transport-by-os" value="dt_shmem" />
-    <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="libs.MySQLDriver.src" value="" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.8.0_11-b12" />
     <property name="javafx.run.inbrowser" value="&lt;Default System Browser&gt;" />
@@ -314,24 +314,24 @@
     <property name="excludes" value="" />
     <property name="libs.jpa2-persistence.javadoc" value="" />
     <property name="apple.laf.useScreenMenuBar" value="true" />
-    <property name="java.class.path" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar;C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar;C:\Program Files\Java\jdk1.8.0_11\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_11\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_11\jre\lib\plugin.jar;C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\classes;C:\Users\Justin\Documents\GitHub\C2J-Stamboom\build\test\classes;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-junit4.jar" />
+    <property name="java.class.path" value="C:\Program Files\Java\jdk1.8.0_11\lib\ant-javafx.jar;C:\Program Files\Java\jdk1.8.0_11\lib\dt.jar;C:\Program Files\Java\jdk1.8.0_11\lib\javafx-mx.jar;C:\Program Files\Java\jdk1.8.0_11\lib\jconsole.jar;C:\Program Files\Java\jdk1.8.0_11\lib\sa-jdi.jar;C:\Program Files\Java\jdk1.8.0_11\lib\tools.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-antlr.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-apache-bcel.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-apache-bsf.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-apache-log4j.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-apache-oro.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-apache-regexp.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-apache-resolver.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-apache-xalan2.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-commons-logging.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-commons-net.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-jai.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-javamail.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-jdepend.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-jmf.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-jsch.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-junit4.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-netrexx.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-swing.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant-testutil.jar;C:\Program Files\NetBeans 8.0\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.0\ide\modules\com-jcraft-jsch.jar;C:\Program Files\NetBeans 8.0\ide\modules\com-jcraft-jzlib.jar;C:\Program Files\NetBeans 8.0\ide\modules\ext\commons-net-3.3.jar" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="C:\Program Files\NetBeans 8.0\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar" />
-    <property name="os.version" value="6.3" />
+    <property name="os.version" value="6.2" />
     <property name="application.args" value="" />
     <property name="manifest.custom.permissions" value="" />
-    <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="main.class.available" value="true" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="sun.desktop" value="windows" />
     <property name="libs.hibernate4-persistence.src" value="" />
     <property name="auxiliary.org-netbeans-spi-editor-hints-projects.perProjectHintSettingsFile" value="nbproject/cfg_hints.xml" />
     <property name="libs.hibernate4-support.maven-pom" value="" />
     <property name="javafx.deploy.allowoffline" value="true" />
+    <property name="nb.internal.action.name" value="debug.single" />
     <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans 8.0\ide\modules\ext\jaxb\api\jaxb-api.jar" />
-    <property name="nb.internal.action.name" value="run.single" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 8.0\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.1.v20130918-f2b9fc5.jar" />
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 8.0\java\docs\beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 8.0\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 8.0\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
@@ -350,67 +350,15 @@
     <property name="ant.version" value="Apache Ant(TM) version 1.9.2 compiled on July 8 2013" />
     <property name="file.encoding" value="Cp1252" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
-    <property name="javadoc.nonavbar" value="false" />
     <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="javafx.deploy.installpermanently" value="false" />
   </properties>
-  <testcase classname="stamboom.domain.DomeinTest" name="testScheiding" time="0.011">
-    <failure message="wel gescheiden" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: wel gescheiden
-	at stamboom.domain.DomeinTest.testScheiding(DomeinTest.java:426)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testSetOuders" time="0.003">
-    <failure message="ouders geen kind erbij expected:&lt;1&gt; but was:&lt;0&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: ouders geen kind erbij expected:&lt;1&gt; but was:&lt;0&gt;
-	at stamboom.domain.DomeinTest.testSetOuders(DomeinTest.java:135)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddPersoon" time="0.002">
-    <failure message="kind niet bij ouderlijk gezin geregistreerd" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: kind niet bij ouderlijk gezin geregistreerd
-	at stamboom.domain.DomeinTest.testAddPersoon(DomeinTest.java:80)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddHuwelijk" time="0.001">
-    <failure message="ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;2 G.  Dael met J.  Peters&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: ongehuwd gezin trouwt expected:&lt;null&gt; but was:&lt;2 G.  Dael met J.  Peters&gt;
-	at stamboom.domain.DomeinTest.testAddHuwelijk(DomeinTest.java:283)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetNaam" time="0.002">
-    <failure message="naam incorrect expected:&lt;[P.F.] Swinkels&gt; but was:&lt;[F. ] Swinkels&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: naam incorrect expected:&lt;[P.F.] Swinkels&gt; but was:&lt;[F. ] Swinkels&gt;
-	at stamboom.domain.DomeinTest.testGetNaam(DomeinTest.java:118)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testSetEnIsHuwelijk" time="0.003">
-    <failure message="huwelijksdatum later invoeren onjuist" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: huwelijksdatum later invoeren onjuist
-	at stamboom.domain.DomeinTest.testSetEnIsHuwelijk(DomeinTest.java:389)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testAddOngehuwdGezin" time="0.002">
-    <failure message="een van de ouders is op dit moment getrouwd" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: een van de ouders is op dit moment getrouwd
-	at stamboom.domain.DomeinTest.testAddOngehuwdGezin(DomeinTest.java:244)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testBeschrijvingGezin" time="0.002">
-    <failure message="beschrijving gezin onjuist expected:&lt;1 F.  Swinkels met T. de Vries&gt; but was:&lt;null&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: beschrijving gezin onjuist expected:&lt;1 F.  Swinkels met T. de Vries&gt; but was:&lt;null&gt;
-	at stamboom.domain.DomeinTest.testBeschrijvingGezin(DomeinTest.java:159)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testHeeftGescheidenOuders" time="0.003">
-    <failure message="wel gescheiden" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: wel gescheiden
-	at stamboom.domain.DomeinTest.testHeeftGescheidenOuders(DomeinTest.java:441)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersoonEnPersonen" time="0.001">
-    <failure message="identificatie persoon onjuist expected:&lt;F.  Swinkels (MAN) 23-4-1950&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: identificatie persoon onjuist expected:&lt;F.  Swinkels (MAN) 23-4-1950&gt; but was:&lt;null&gt;
-	at stamboom.domain.DomeinTest.testGetPersoonEnPersonen(DomeinTest.java:455)
-</failure>
-  </testcase>
-  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersonenMetAchternaam" time="0.002">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at stamboom.domain.DomeinTest.testGetPersonenMetAchternaam(DomeinTest.java:498)
+  <testcase classname="stamboom.domain.DomeinTest" name="testGetPersonenMetAchternaam" time="0.0">
+    <error message="Forked Java VM exited abnormally. Please note the time in the report does not reflect the time until the VM exit." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Forked Java VM exited abnormally. Please note the time in the report does not reflect the time until the VM exit.
+	at org.netbeans.core.execution.RunClassThread.run(RunClassThread.java:153)
 </error>
   </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
 </testsuite>
