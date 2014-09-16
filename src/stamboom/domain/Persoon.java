@@ -81,11 +81,11 @@ public class Persoon {
      */
 public String getInitialen() {
         //todo opgave 1
-        String retInitialen = null;
+        String retInitialen = "";
         
         for (int i = 0; i < voornamen.length; i++)
         {
-            retInitialen = voornamen[i].toUpperCase().charAt(0) + ".";
+            retInitialen += voornamen[i].toUpperCase().charAt(0) + ".";
         }
         return retInitialen;
     }
