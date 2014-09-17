@@ -82,6 +82,7 @@ public class Administratie {
         
         for (int i = 0; i < vnamen.length; i++)
         {
+            CapitalizeString(vnamen[i]);
             voornamenVal.add(CapitalizeString(vnamen[i]));
         }
         
@@ -108,8 +109,14 @@ public class Administratie {
         }
         
         newPersoon = new Persoon(nextPersNr, voornamenRes, achternaamVal, tussenvoegselVal, gebdat, geboorteplaatsVal, geslacht, ouderlijkGezin);
+        newPersoon.setOuders(ouderlijkGezin);
+        
+        //ouderlijkGezin.getOuder1().wordtOuderIn(ouderlijkGezin);
+        //ouderlijkGezin.getOuder2().wordtOuderIn(ouderlijkGezin);
         
         this.personen.add(newPersoon);
+        
+        
         nextPersNr += 1;
         return newPersoon;
     }
@@ -121,7 +128,7 @@ public class Administratie {
         
         while (tempVNaam.contains("  "))
         {
-            tempVNaam.replace("  ", " ");
+            tempVNaam = tempVNaam.replace("  ", " ");
         }
         
         if(tempVNaam.startsWith(" "))
@@ -245,7 +252,7 @@ public class Administratie {
             if(p.equals(ouder1))
             {
                 if(ouder1.heeftOngehuwdGezinMet(ouder2) != null)
-                        ouder1.heeftOngehuwdGezinMet(ouder2).isHuwelijkOp(huwdatum);
+                        ouder1.heeftOngehuwdGezinMet(ouder2).setHuwelijk(huwdatum);//ouder1.heeftOngehuwdGezinMet(ouder2).isHuwelijkOp(huwdatum);
                 else
                 {
                     newFamily = new Gezin(this.nextGezinsNr, ouder1, ouder2);
@@ -320,14 +327,13 @@ public class Administratie {
      */
     public ArrayList<Persoon> getPersonenMetAchternaam(String achternaam) {
         //todo opgave 1
-         ArrayList<Persoon> getPersonWithLastName = null;
-            List<Persoon> personList;     
-            personList = getPersonen();
+         ArrayList<Persoon> getPersonWithLastName = new ArrayList<Persoon>();
+            List<Persoon> personList = getPersonen();     
+            //personList = getPersonen();
         
         for (Persoon persoon: personList) {
-            if (persoon.getAchternaam().equals(achternaam)) {
+            if (persoon.getAchternaam().toLowerCase().equals(achternaam.toLowerCase())) {
                 getPersonWithLastName.add(persoon);
-
             }
             else
             {
@@ -363,21 +369,32 @@ public class Administratie {
         //todo opgave 1
         Persoon retPerson = null;
         
+        for (Persoon p : this.personen)
+        {
+            if(p.getAchternaam().toLowerCase().equals(anaam.toLowerCase()) &&
+               p.getTussenvoegsel().toLowerCase().equals(tvoegsel.toLowerCase()) &&
+               p.getInitialen().toLowerCase().equals(setInitialen(vnamen).toLowerCase()) &&
+               (p.getGebDat().equals(gebdat) || p.getGebDat() == null) &&
+               (p.getGebPlaats().toLowerCase().equals(gebplaats.toLowerCase()) || p.getGebPlaats() == null))//p.getVoornamen().toLowerCase().equals(this.formatVoornamen(vnamen)))
+            {
+                retPerson = p;
+            }
+        }
+        
+        /*
         for (int i = 0; i < this.personen.size(); i++)
         {
             Persoon currPerson = this.personen.get(i);
-            if( currPerson.getAchternaam() == anaam &&
-                    currPerson.getGebDat() == gebdat &&
-                    currPerson.getTussenvoegsel() == tvoegsel &&
-                    currPerson.getGebPlaats() == gebplaats &&
-                    currPerson.getVoornamen() == formatVoornamen(vnamen))
+            if( currPerson.getAchternaam().toLowerCase() == anaam.toLowerCase() &&
+                    currPerson.getTussenvoegsel().toLowerCase() == tvoegsel.toLowerCase() &&
+                    currPerson.getVoornamen().toLowerCase() == formatVoornamen(vnamen).toLowerCase())
             {
-                return currPerson;
+                retPerson = currPerson;
             }
                     
-        }
+        }*/
         
-        return null;
+        return retPerson;
     }
     
     public String formatVoornamen(String[] s2) {
@@ -408,5 +425,21 @@ public class Administratie {
             return gezinnen.get(gezinsNr - 1);
         }
         return null;
+    }
+    
+    /**
+     *
+     * @return de voorletters van de voornamen; elke voorletter wordt gevolgd
+     * door een punt
+     */
+public String setInitialen(String[] voornamen) {
+        //todo opgave 1
+        String retInitialen = "";
+        
+        for (int i = 0; i < voornamen.length; i++)
+        {
+            retInitialen += voornamen[i].toUpperCase().charAt(0) + ".";
+        }
+        return retInitialen;
     }
 }

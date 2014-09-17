@@ -98,10 +98,10 @@ public String getInitialen() {
      */
 public String getNaam() {
         //todo opgave 1
-        String retNaam = null;
+        String retNaam = "";
         
         retNaam = getInitialen() + " " +
-                  tussenvoegsel + " " +
+                  ((tussenvoegsel.length() > 0)?tussenvoegsel + " ": "") +
                   achternaam;
         
         return retNaam;

@@ -146,6 +146,8 @@ public class Gezin {
      */
     boolean setHuwelijk(Calendar datum) {
         //todo opgave 1
+        if(this.huwelijksdatum != null)
+            return false;
         if(this.huwelijksdatum == null || this.scheidingsdatum.before(datum))
         {
             this.huwelijksdatum = datum;
@@ -166,8 +168,8 @@ public class Gezin {
         //todo opgave 1
         String retVal = null;
         String conText = "; kinderen:";
-        retVal = this.nr + "; " +
-                 this.ouder1.getNaam() + "; " +
+        retVal = this.nr + " " +
+                 this.ouder1.getNaam() + " met " +
                  this.ouder2.getNaam();
         if (!this.kinderen.isEmpty())
         {
@@ -178,7 +180,7 @@ public class Gezin {
             }
         }
         
-        return null;
+        return retVal;
     }
 
     void breidUitMet(Persoon kind) {
@@ -205,7 +207,13 @@ public class Gezin {
      */
     public boolean isHuwelijkOp(Calendar datum) {
         //todo opgave 1
-        if (this.huwelijksdatum == datum)
+        if (this.huwelijksdatum == null)
+            return false;
+        else if (datum == null)
+            return false;
+        else if (this.huwelijksdatum == datum)
+            return true;
+        else if (this.huwelijksdatum.before(datum))
             return true;
         else
             return false;
@@ -226,13 +234,17 @@ public class Gezin {
      */
     public boolean heeftGescheidenOudersOp(Calendar datum) {
         //todo opgave 1
-         if(this.scheidingsdatum == datum)
+        if(this.scheidingsdatum == null)
         {
-        return true;
+            return false;
+        }
+        if(this.scheidingsdatum.before(datum) || this.scheidingsdatum.equals(datum))
+        {
+            return true;
         }
         else
         {
-        return false;
+            return false;
         }
     }
 }
