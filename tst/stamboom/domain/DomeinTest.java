@@ -488,7 +488,6 @@ public class DomeinTest extends TestCase{
         }
         assertFalse("personen onjuist ingekapseld", adm.getPersonen().isEmpty());
     }
-
     @Test
     public void testGetPersonenMetAchternaam() {
         /**

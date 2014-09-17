@@ -248,11 +248,17 @@ public class Administratie {
     public Gezin addHuwelijk(Persoon ouder1, Persoon ouder2, Calendar huwdatum) {
         //todo opgave 1
         Gezin newFamily = null;
+        if(ouder1 == ouder2)
+        {
+            return null;
+        }
         for(Persoon p : personen){
             if(p.equals(ouder1))
             {
-                if(ouder1.heeftOngehuwdGezinMet(ouder2) != null)
+                newFamily = ouder1.heeftOngehuwdGezinMet(ouder2);
+                if(newFamily != null){
                         ouder1.heeftOngehuwdGezinMet(ouder2).setHuwelijk(huwdatum);//ouder1.heeftOngehuwdGezinMet(ouder2).isHuwelijkOp(huwdatum);
+                }
                 else
                 {
                     newFamily = new Gezin(this.nextGezinsNr, ouder1, ouder2);
@@ -327,7 +333,7 @@ public class Administratie {
      */
     public ArrayList<Persoon> getPersonenMetAchternaam(String achternaam) {
         //todo opgave 1
-         ArrayList<Persoon> getPersonWithLastName = new ArrayList<Persoon>();
+         ArrayList<Persoon> getPersonWithLastName = new ArrayList<>();
             List<Persoon> personList = getPersonen();     
             //personList = getPersonen();
         

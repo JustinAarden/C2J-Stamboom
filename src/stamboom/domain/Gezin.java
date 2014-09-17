@@ -58,6 +58,7 @@ public class Gezin {
      * @return het aantal kinderen in dit gezin
      */
     public int aantalKinderen() {
+        
         return kinderen.size();
     }
 
@@ -148,6 +149,7 @@ public class Gezin {
         //todo opgave 1
         if(this.huwelijksdatum != null)
             return false;
+
         if(this.huwelijksdatum == null || this.scheidingsdatum.before(datum))
         {
             this.huwelijksdatum = datum;
