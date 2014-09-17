@@ -333,7 +333,7 @@ public class Administratie {
      */
     public ArrayList<Persoon> getPersonenMetAchternaam(String achternaam) {
         //todo opgave 1
-         ArrayList<Persoon> getPersonWithLastName = new ArrayList<>();
+         ArrayList<Persoon> getPersonWithLastName = new ArrayList<Persoon>();
             List<Persoon> personList = getPersonen();     
             //personList = getPersonen();
         
