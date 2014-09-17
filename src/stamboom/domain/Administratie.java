@@ -1,5 +1,6 @@
 package stamboom.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Administratie {
@@ -96,20 +97,46 @@ public class Administratie {
             nr = this.personen.get(this.personen.size()-1).getNr() + 1;
         }
         
+        
+        /*
         for (int i = 0; i < this.personen.size(); i++)
         {
             Persoon currentPerson = this.personen.get(i);
-            if(currentPerson.getAchternaam() == achternaamVal &&
-               currentPerson.getVoornamen() == this.formatVoornamen(voornamenRes) &&
-               currentPerson.getGebPlaats() == geboorteplaatsVal &&
-               currentPerson.getGebDat() == gebdat)
+            if(currentPerson.getAchternaam().toLowerCase() == achternaamVal.toLowerCase() &&
+               //currentPerson.getVoornamen().toLowerCase() == this.formatVoornamen(voornamenRes).toLowerCase() &&
+               currentPerson.getInitialen().toLowerCase() == this.setInitialen(voornamenRes).toLowerCase() &&
+               currentPerson.getGebPlaats().toLowerCase() == geboorteplaatsVal.toLowerCase()) //&&
+               //currentPerson.getGebDat() == gebdat)
             {
                 return null;
             }
-        }
+        }*/
         
         newPersoon = new Persoon(nextPersNr, voornamenRes, achternaamVal, tussenvoegselVal, gebdat, geboorteplaatsVal, geslacht, ouderlijkGezin);
-        //newPersoon.setOuders(ouderlijkGezin);
+        
+        for (Persoon p : this.personen)
+        {
+            boolean val1 = (p.getInitialen().toLowerCase().equals(newPersoon.getInitialen().toLowerCase()))? true : false;
+            boolean val2 = (p.getAchternaam().toLowerCase().equals(newPersoon.getAchternaam().toLowerCase()))? true : false;
+            boolean val3 = (p.getGebPlaats().toLowerCase().equals(newPersoon.getGebPlaats().toLowerCase()))? true : false;
+            SimpleDateFormat sdf = new SimpleDateFormat("d-M-yyyy");
+
+            String gebdat1 = sdf.format(p.getGebDat().getTime());
+            String gebdat2 = sdf.format(newPersoon.getGebDat().getTime());
+            
+            boolean val4 = (gebdat1.equals(gebdat2))? true : false;
+            
+            if(val1 &&
+               val2 &&
+               val3 &&
+               val4)
+                return null;
+        }
+        
+        if(ouderlijkGezin != null)
+            if(!ouderlijkGezin.getOuder1().equals(newPersoon) && 
+                    !ouderlijkGezin.getOuder2().equals(newPersoon))
+                ouderlijkGezin.breidUitMet(newPersoon);
         
         this.personen.add(newPersoon);
         
@@ -249,6 +276,21 @@ public class Administratie {
         {
             return null;
         }
+        
+        for(Gezin g : gezinnen)
+        {
+            if(g.getOuder1() == ouder1 || g.getOuder2() == ouder1)
+            {
+                if(g.getHuwelijksdatum() != null && (g.getScheidingsdatum() == null || huwdatum.before(g.getScheidingsdatum())))
+                    return null;
+            }
+            if(g.getOuder1() == ouder2 || g.getOuder2() == ouder2)
+            {
+                if(g.getHuwelijksdatum() != null && (g.getScheidingsdatum() == null || huwdatum.before(g.getScheidingsdatum())))
+                    return null;
+            }
+        }
+        
         for(Persoon p : personen){
             if(p.equals(ouder1))
             {

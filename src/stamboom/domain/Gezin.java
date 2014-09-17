@@ -41,7 +41,7 @@ public class Gezin {
         this.nr = gezinsNr;
         this.ouder1 = ouder1;
         this.ouder2 = ouder2;
-        this.kinderen = new ArrayList<>();
+        this.kinderen = new ArrayList<Persoon>();
         this.huwelijksdatum = null;
         this.scheidingsdatum = null;
     }
@@ -185,7 +185,7 @@ public class Gezin {
             retVal += conText;
             for (int i = 0; i < this.kinderen.size(); i++)
             {
-                retVal += " -" + this.kinderen.get(i);
+                retVal += " -" + this.kinderen.get(i).getVoornamen();
             }
         }
         
