@@ -109,10 +109,7 @@ public class Administratie {
         }
         
         newPersoon = new Persoon(nextPersNr, voornamenRes, achternaamVal, tussenvoegselVal, gebdat, geboorteplaatsVal, geslacht, ouderlijkGezin);
-        newPersoon.setOuders(ouderlijkGezin);
-        
-        //ouderlijkGezin.getOuder1().wordtOuderIn(ouderlijkGezin);
-        //ouderlijkGezin.getOuder2().wordtOuderIn(ouderlijkGezin);
+        //newPersoon.setOuders(ouderlijkGezin);
         
         this.personen.add(newPersoon);
         
@@ -272,26 +269,6 @@ public class Administratie {
                 }
             }
         }
-        /*
-        for(int i = 0; 0 < this.gezinnen.size(); i++)
-        {
-            Persoon currParent1 = this.gezinnen.get(i).getOuder1();
-            Persoon currParent2 = this.gezinnen.get(i).getOuder2();
-            
-            if(currParent1 == ouder1 || currParent1 == ouder2)
-                return null;
-            if(currParent2 == ouder1 || currParent2 == ouder2)
-                return null;
-            if(ouder1 == ouder2)
-                return null;
-        }
-        
-        newFamily = new Gezin(this.nextGezinsNr, ouder1, ouder2);
-        newFamily.setHuwelijk(huwdatum);
-        this.nextGezinsNr++;
-        
-        this.gezinnen.add(newFamily);
-        */
         return newFamily;
     }
 
@@ -343,7 +320,7 @@ public class Administratie {
             }
             else
             {
-                
+                //
             }
         }
         
@@ -356,7 +333,10 @@ public class Administratie {
      */
     public List<Persoon> getPersonen() {
         // todo opgave 1
-        return this.personen;
+        List<Persoon> retPersonen = new ArrayList<Persoon>();
+        retPersonen.addAll(this.personen);
+        return retPersonen;
+        //return this.personen.subList(0, this.personen.size());
     }
 
     /**

@@ -332,7 +332,7 @@ public class DomeinTest extends TestCase{
         Persoon pim = adm.addPersoon(Geslacht.MAN, new String[]{"Pim"}, "sWinkelS",
                 "VaN deR", new GregorianCalendar(1995, Calendar.APRIL, 13), "venLO",
                 pietEnTeuntje);
-
+        
         assertNull("ouders verschillend", adm.addHuwelijk(pim, pim, nu));
         assertNull("ouders ongehuwd", adm.addHuwelijk(roel, pim, Calendar.getInstance()));
         assertNull("ouders ongehuwd", adm.addHuwelijk(pim, roel, Calendar.getInstance()));

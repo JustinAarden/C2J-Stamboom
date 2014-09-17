@@ -1,0 +1,12 @@
+build/built-jar.properties
+build/built-jar.properties
+build/classes/stamboom/domain/Administratie.class
+build/built-jar.properties
+build/classes/stamboom/domain/Gezin.class
+build/test/results/TEST-stamboom.domain.DomeinTest.xml
+build/test/results/TEST-stamboom.domain.StamboomTest.xml
+dist/lib/junit-4.10.jar
+dist/lib/mysql-connector-java-5.1.23-bin.jar
+dist/Stamboom Applicatie.html
+dist/Stamboom Applicatie.jnlp
+dist/StamboomProject.jar

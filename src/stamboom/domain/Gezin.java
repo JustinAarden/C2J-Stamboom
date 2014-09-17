@@ -1,5 +1,6 @@
 package stamboom.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import stamboom.util.StringUtilities;
 
@@ -173,6 +174,12 @@ public class Gezin {
         retVal = this.nr + " " +
                  this.ouder1.getNaam() + " met " +
                  this.ouder2.getNaam();
+        if (this.huwelijksdatum != null)
+        {
+            SimpleDateFormat sdf = new SimpleDateFormat("d-M-yyyy");
+
+            retVal += " " + sdf.format(huwelijksdatum.getTime());
+        }
         if (!this.kinderen.isEmpty())
         {
             retVal += conText;
