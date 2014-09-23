@@ -4,8 +4,9 @@
  */
 package stamboom.storage;
 
-import java.io.File;
-import java.io.IOException;
+//import java.io.File;
+//import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 import stamboom.domain.Administratie;
 
@@ -27,6 +28,23 @@ public class SerializationMediator implements IStorageMediator {
         }
         
         // todo opgave 2
+        try{
+            ObjectInputStream in;
+            FileInputStream stream;
+            stream = new FileInputStream("stamboomadministratie.txt");
+            in = new ObjectInputStream(stream);
+            Administratie adminObject;
+            adminObject = (Administratie) in.readObject();
+            
+            return adminObject;
+        }
+        catch(IOException exc){
+            exc.printStackTrace();
+        }
+        catch(ClassNotFoundException exc)
+        {
+            exc.printStackTrace();
+        }
         return null;
     }
 
@@ -37,7 +55,17 @@ public class SerializationMediator implements IStorageMediator {
         }
 
         // todo opgave 2
-  
+        try{
+            ObjectOutputStream out;
+            FileOutputStream stream;
+            stream = new FileOutputStream("stamboomadministratie.txt");
+            out = new ObjectOutputStream(stream);
+            out.writeObject(admin);
+        }
+        catch(IOException exc)
+        {
+            exc.printStackTrace();
+        }
     }
 
     @Override

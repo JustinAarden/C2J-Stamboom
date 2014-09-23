@@ -16,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import junit.framework.TestCase;
 import org.junit.*;
-import static org.junit.Assert.*;
 import stamboom.controller.StamboomController;
 import stamboom.domain.DomeinTest;
 
@@ -75,6 +74,7 @@ public class SerialisatieTest extends TestCase {
 
         assertEquals("aantal personen in observable personen onjuist", adm.aantalGeregistreerdePersonen() + 1,
                 adm2.getPersonen().size());
+        
         assertTrue(testOpslag.delete());
     }
 }
