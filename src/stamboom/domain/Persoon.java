@@ -135,9 +135,31 @@ public String getNaam() {
     public String getVoornamen() {
         StringBuilder init = new StringBuilder();
         for (String s : voornamen) {
-            init.append(s).append(' ');
+            init.append(this.CapitalizeString(s)).append(' ');
         }
         return init.toString().trim();
+    }
+    
+    public String CapitalizeString(String str)
+    {
+        String tempVNaam = str.toLowerCase();
+        tempVNaam = tempVNaam.substring(0, 1).toUpperCase() + tempVNaam.substring(1, tempVNaam.length());
+        
+        while (tempVNaam.contains("  "))
+        {
+            tempVNaam = tempVNaam.replace("  ", " ");
+        }
+        
+        if(tempVNaam.startsWith(" "))
+        {
+            tempVNaam = tempVNaam.substring(1, tempVNaam.length());
+        }
+        
+        if(tempVNaam.endsWith(" "))
+        {
+            tempVNaam = tempVNaam.substring(0, tempVNaam.length()-1);
+        }
+        return tempVNaam;
     }
 
     /**
@@ -169,6 +191,7 @@ public String getNaam() {
      */
     void setOuders(Gezin ouderlijkGezin) {
         this.ouderlijkGezin = ouderlijkGezin;
+        this.ouderlijkGezin.breidUitMet(this);
     }
 
     /**
