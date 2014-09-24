@@ -36,7 +36,7 @@ public class SerializationMediator implements IStorageMediator {
             in = new ObjectInputStream(stream);
             
             adminObject = (Administratie) in.readObject();
-            
+
         }
         catch(IOException exc){
             exc.printStackTrace();

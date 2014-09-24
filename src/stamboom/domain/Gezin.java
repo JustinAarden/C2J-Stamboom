@@ -1,10 +1,11 @@
 package stamboom.domain;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import stamboom.util.StringUtilities;
 
-public class Gezin {
+public class Gezin implements Serializable {
 
     // *********datavelden*************************************
     private final int nr;
