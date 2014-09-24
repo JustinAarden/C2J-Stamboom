@@ -27,16 +27,16 @@ public class SerializationMediator implements IStorageMediator {
             throw new RuntimeException("Serialization mediator isn't initialized correctly.");
         }
         
+        ObjectInputStream in = null;
+        FileInputStream stream = null;
+        Administratie adminObject = null;
         // todo opgave 2
         try{
-            ObjectInputStream in;
-            FileInputStream stream;
             stream = new FileInputStream("stamboomadministratie.txt");
             in = new ObjectInputStream(stream);
-            Administratie adminObject;
+            
             adminObject = (Administratie) in.readObject();
             
-            return adminObject;
         }
         catch(IOException exc){
             exc.printStackTrace();
@@ -45,7 +45,14 @@ public class SerializationMediator implements IStorageMediator {
         {
             exc.printStackTrace();
         }
-        return null;
+        finally{
+            if(in != null)
+                in.close();
+            if(stream != null)
+                stream.close();
+        }
+        
+        return adminObject;
     }
 
     @Override
@@ -55,9 +62,9 @@ public class SerializationMediator implements IStorageMediator {
         }
 
         // todo opgave 2
+        ObjectOutputStream out = null;
+        FileOutputStream stream = null;
         try{
-            ObjectOutputStream out;
-            FileOutputStream stream;
             stream = new FileOutputStream("stamboomadministratie.txt");
             out = new ObjectOutputStream(stream);
             out.writeObject(admin);
@@ -65,6 +72,12 @@ public class SerializationMediator implements IStorageMediator {
         catch(IOException exc)
         {
             exc.printStackTrace();
+        }
+        finally{
+            if(out != null)
+                out.close();
+            if(stream != null)
+                stream.close();
         }
     }
 

@@ -134,9 +134,12 @@ public class Administratie {
         }
         
         if(ouderlijkGezin != null)
-            if(!ouderlijkGezin.getOuder1().equals(newPersoon) && 
+        {
+            if(ouderlijkGezin.getOuder2() != null)
+                if(!ouderlijkGezin.getOuder1().equals(newPersoon) && 
                     !ouderlijkGezin.getOuder2().equals(newPersoon))
-                ouderlijkGezin.breidUitMet(newPersoon);
+                    ouderlijkGezin.breidUitMet(newPersoon);
+        }
         
         this.personen.add(newPersoon);
         
@@ -319,7 +322,7 @@ public class Administratie {
      * @return het aantal geregistreerde personen
      */
     public int aantalGeregistreerdePersonen() {
-        return nextPersNr - 2;
+        return nextPersNr - 1;
     }
 
     /**
@@ -327,7 +330,7 @@ public class Administratie {
      * @return het aantal geregistreerde gezinnen
      */
     public int aantalGeregistreerdeGezinnen() {
-        return nextGezinsNr - 2;
+        return nextGezinsNr - 1;
     }
 
     /**

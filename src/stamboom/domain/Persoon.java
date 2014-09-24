@@ -18,6 +18,8 @@ public class Persoon {
     private Gezin ouderlijkGezin;
     private final List<Gezin> alsOuderBetrokkenIn;
     private final Geslacht geslacht;
+    
+    List<PersoonMetGeneratie> pmg = new ArrayList<PersoonMetGeneratie>();
 
     // ********constructoren***********************************
     /**
@@ -343,7 +345,39 @@ public boolean isGescheidenOp(Calendar datum) {
      */
     public int afmetingStamboom() {
         //todo opgave 2
-        return -1;
+        int count = 1;
+        if(this.ouderlijkGezin != null)
+        {
+            count += ouderRotatie(this.ouderlijkGezin);
+        }
+        return count;
+    }
+    
+    public int ouderRotatie(Gezin ouderlijkGezin)
+    {
+        int count = 0;
+        
+        if(ouderlijkGezin.getOuder1() != null)
+            if(ouderlijkGezin.getOuder1().getOuderlijkGezin() != null)
+            {
+                count += ouderRotatie(ouderlijkGezin.getOuder1().getOuderlijkGezin()) + 1;
+            }
+            else 
+            {
+                count += 1;
+            }
+        
+        if(ouderlijkGezin.getOuder2() != null)
+            if(ouderlijkGezin.getOuder2().getOuderlijkGezin() != null)
+            {
+                count += ouderRotatie(ouderlijkGezin.getOuder2().getOuderlijkGezin()) + 1;
+            }
+            else 
+            {
+                count += 1;
+            }
+        
+        return count;
     }
 
     /**
@@ -360,6 +394,25 @@ public boolean isGescheidenOp(Calendar datum) {
      */
     void voegJouwStamboomToe(ArrayList<PersoonMetGeneratie> lijst, int g) {
         //todo opgave 2
+        
+        /*
+        int count = 1;
+        if(this.ouderlijkGezin != null)
+        {
+            count += b(this.ouderlijkGezin, 0);
+        }
+        return count;
+        */
+        lijst = new ArrayList<PersoonMetGeneratie>();
+        g = 0;
+        lijst.add(new PersoonMetGeneratie(this.standaardgegevens(), g));
+        
+        if(this.ouderlijkGezin!=null)
+        {
+            lijst.addAll(b(this.ouderlijkGezin, g));
+        }
+        
+        this.pmg = lijst;
     }
 
     /**
@@ -388,7 +441,52 @@ public boolean isGescheidenOp(Calendar datum) {
     public String stamboomAlsString() {
         StringBuilder builder = new StringBuilder();
         //todo opgave 2
-
+        voegJouwStamboomToe(null, 0);
+        
+        String totalS = "";
+        
+        for(PersoonMetGeneratie pmg : this.pmg)
+        {
+            String s = pmg.getPersoonsgegevens();
+            for(int i = 0; i < pmg.getGeneratie(); i++)
+            {
+                s = "  " + s; 
+            }
+            totalS += s + System.getProperty("line.separator");
+        }
+        builder.append(totalS);
+        
         return builder.toString();
+    }
+    
+    public ArrayList<PersoonMetGeneratie> b(Gezin ouderlijkGezin, int generatie)
+    {
+        int count = 0;
+        generatie += 1;
+        ArrayList<PersoonMetGeneratie> localpmg = new ArrayList<PersoonMetGeneratie>();
+        
+        if(ouderlijkGezin.getOuder1() != null)
+            if(ouderlijkGezin.getOuder1().getOuderlijkGezin() != null)
+            {
+                localpmg.add(new PersoonMetGeneratie(ouderlijkGezin.getOuder1().standaardgegevens(), generatie));
+                localpmg.addAll(b( ouderlijkGezin.getOuder1().getOuderlijkGezin(), generatie));
+            }
+            else 
+            {
+                localpmg.add(new PersoonMetGeneratie(ouderlijkGezin.getOuder1().standaardgegevens(), generatie));
+            }
+        
+        if(ouderlijkGezin.getOuder2() != null)
+            if(ouderlijkGezin.getOuder2().getOuderlijkGezin() != null)
+            {
+                localpmg.add(new PersoonMetGeneratie(ouderlijkGezin.getOuder2().standaardgegevens(), generatie));
+                localpmg.addAll(b( ouderlijkGezin.getOuder2().getOuderlijkGezin(), generatie));
+            }
+            else 
+            {
+                localpmg.add(new PersoonMetGeneratie(ouderlijkGezin.getOuder2().standaardgegevens(), generatie));
+            }
+        
+        return localpmg;
     }
 }

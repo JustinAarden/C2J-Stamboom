@@ -53,6 +53,9 @@ public class StamboomController {
             stream = new FileOutputStream(bestand);
             out = new ObjectOutputStream(stream);
             out.writeObject(admin);
+            
+            out.close();
+            stream.close();
         }
         catch(IOException exc)
         {
@@ -77,6 +80,10 @@ public class StamboomController {
             adminObject = (Administratie) in.readObject();
             
             admin = adminObject;
+            
+            
+            in.close();
+            stream.close();
         }
         catch(IOException exc){
             exc.printStackTrace();
