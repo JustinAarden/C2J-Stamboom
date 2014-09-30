@@ -108,12 +108,23 @@ public class StamboomConsole {
         String gezinsString = readString("gezinsnummer van ouderlijk gezin");
         if (gezinsString.equals("")) {
             ouders = null;
+            
         } else {
             ouders = getAdmin().getGezin(Integer.parseInt(gezinsString));
+            
         }
-
+            
         getAdmin().addPersoon(geslacht, vnamen, anaam, tvoegsel, gebdat,
                 gebplaats, ouders);
+                        File f = new File("serializaedadmin");
+        try
+        {
+            controller.serialize(f);
+        } catch(IOException exc) {
+            exc.fillInStackTrace();
+        }
+
+
     }
 
     void invoerNieuwGezin() {
