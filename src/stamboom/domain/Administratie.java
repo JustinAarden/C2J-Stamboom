@@ -453,6 +453,11 @@ public class Administratie implements Serializable {
      */
     public Gezin getGezin(int gezinsNr) {
         // aanname: er worden geen gezinnen verwijderd
+        if(gezinsNr > gezinnen.size())
+        {
+            return null;
+        }
+        
         if (1 <= gezinsNr && 1 <= gezinnen.size()) {
             return gezinnen.get(gezinsNr - 1);
         }

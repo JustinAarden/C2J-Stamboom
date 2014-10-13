@@ -5,11 +5,11 @@
         <group>
             <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/storage/SerializationMediator.java</file>
             <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/domain/Administratie.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/domain/Persoon.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/domain/Gezin.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/console/StamboomConsole.java</file>
             <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/domain/PersoonMetGeneratie.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/tst/stamboom/storage/SerialisatieTest.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/domain/Geslacht.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/storage/JDBCExample.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/src/stamboom/storage/DatabaseMediator.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/C2J-Stamboom/tst/stamboom/domain/DomeinTest.java</file>
         </group>
     </open-files>
 </project-private>

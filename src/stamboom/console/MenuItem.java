@@ -11,7 +11,8 @@ public enum MenuItem {
     SHOW_GEZIN("toon gegevens gezin"),
     GET_ADMIN("ophalen van den administratie uit een bestand"),
     SET_ADMIN("bewaren van de administratie in een bestand"),
-    REQ_STAM_PERSOON("opvragen van stamboomgegevens voor een persoon");
+    REQ_STAM_PERSOON("opvragen van stamboomgegevens voor een persoon"),
+    OPEN_CONN("Open DB CONN");
     
     private final String omschr;
 

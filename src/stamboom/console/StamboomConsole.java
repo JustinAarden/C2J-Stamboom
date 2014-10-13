@@ -6,12 +6,14 @@ import stamboom.domain.*;
 import java.util.*;
 import stamboom.util.StringUtilities;
 import stamboom.controller.StamboomController;
+import stamboom.storage.DatabaseMediator;
 
 public class StamboomConsole {
 
     // **********datavelden**********************************************
     private final Scanner input;
     private final StamboomController controller;
+   // private final DatabaseMediator storage;
 
     // **********constructoren*******************************************
     public StamboomConsole(StamboomController controller) {
@@ -49,6 +51,10 @@ public class StamboomConsole {
                     setAdmin();
                     break;
                 case REQ_STAM_PERSOON:
+                    getFamilyTree();
+                    break;
+                case OPEN_CONN:
+                    getFamilyTree();
                     break;
             }
             choice = kiesMenuItem();
@@ -140,6 +146,14 @@ public class StamboomConsole {
         if (gezin == null) {
             System.out.println("gezin is niet geaccepteerd");
         }
+                                File f = new File("serializaedadmin");
+        try
+        {
+            controller.serialize(f);
+        } catch(IOException exc) {
+            exc.fillInStackTrace();
+        }
+
     }
 
     void invoerHuwelijk() {
@@ -290,6 +304,32 @@ public class StamboomConsole {
     String datumString(Calendar datum) {
         return StringUtilities.datumString(datum);
     }
+    
+    public void getFamilyTree()
+    {
+        String p = GetFamilyTreeString();
+        if (p == null || p == "") {
+            System.out.println("persoon onbekend");
+        } else {
+            System.out.println(p);
+        }
+    }
+    
+    String GetFamilyTreeString()
+    {
+        String naam = readString("wat is de achternaam");
+        ArrayList<Persoon> personen = getAdmin().getPersonenMetAchternaam(naam);
+        for (Persoon p : personen) {
+            System.out.println(p.getNr() + "\t" + p.getNaam() + " " + datumString(p.getGebDat()));
+        }
+        int invoer = readInt("selecteer persoonsnummer");
+        input.nextLine();
+        Persoon p = getAdmin().getPersoon(invoer);
+        if(p!=null)
+            return p.stamboomAlsString();
+        else
+            return "";
+    }
 
     public static void main(String[] arg) {
         StamboomController controller = new StamboomController();
@@ -297,4 +337,6 @@ public class StamboomConsole {
         StamboomConsole console = new StamboomConsole(controller);
         console.startMenu();
     }
+    
+
 }

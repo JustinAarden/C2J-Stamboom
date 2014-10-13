@@ -5,26 +5,90 @@
 package stamboom.storage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Properties;
 import stamboom.domain.Administratie;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.*;
 
+// Notice, do not import com.mysql.jdbc.*
+// or you will have problems!
 public class DatabaseMediator implements IStorageMediator {
 
     private Properties props;
-    private Connection conn;
+    private Connection conn = null;
+    private Statement statement = null;
+    private ResultSet resultSet = null;
 
-    
+   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+   static final String DB_URL = "jdbc:mysql://localhost/STUDENTS";
+
+   //  Database credentials
+   static final String USER = "root";
+   static final String PASS = "";
+
+    // statements allow to issue SQL queries to the database
+    //statement = conn.createStatement();
+    public void openConnection() {
+        try {
+            //DatabaseMediator.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            // Do something with the Connection
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+
+        //return System.out.println("SQLState: " + ex.getSQLState());
+    }
+
     @Override
     public Administratie load() throws IOException {
-        //todo opgave 4
+        this.openConnection();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs;
+            String query = "SELECT voornamen FROM personen WHERE persoonsNr = 1";
+            rs = stmt.executeQuery(query);
+            while ( rs.next() ) {
+                String voornaam = rs.getString("voornamen");
+                System.out.println(voornaam);
+            }
+            this.closeConnection();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseMediator.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return null;
     }
 
     @Override
     public void save(Administratie admin) throws IOException {
-        //todo opgave 4     
+        this.openConnection();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs;
+            
+            rs = stmt.executeQuery("SELECT Lname FROM Customers WHERE Snum = 2001");
+            while ( rs.next() ) {
+                String lastName = rs.getString("Lname");
+                System.out.println(lastName);
+            }
+            this.closeConnection();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseMediator.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

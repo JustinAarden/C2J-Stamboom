@@ -12,6 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import stamboom.domain.Administratie;
 import stamboom.storage.IStorageMediator;
+import stamboom.storage.DatabaseMediator;
 
 public class StamboomController {
 
