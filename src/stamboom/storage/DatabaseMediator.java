@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.*;
+import stamboom.domain.Persoon;
 
 // Notice, do not import com.mysql.jdbc.*
 // or you will have problems!
@@ -22,34 +23,43 @@ public class DatabaseMediator implements IStorageMediator {
 
     private Properties props;
     private Connection conn = null;
-    private Statement statement = null;
-    private ResultSet resultSet = null;
+        public static DatabaseMediator db;
 
-   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-   static final String DB_URL = "jdbc:mysql://localhost/STUDENTS";
 
-   //  Database credentials
-   static final String USER = "root";
-   static final String PASS = "";
+//   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+//   static final String DB_URL = "jdbc:mysql://localhost/STUDENTS";
+//
+//   //  Database credentials
+//   static final String USER = "root";
+//   static final String PASS = "";
 
     // statements allow to issue SQL queries to the database
     //statement = conn.createStatement();
     public void openConnection() {
-        try {
-            //DatabaseMediator.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
-            // Do something with the Connection
-        } catch (SQLException ex) {
-            // handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
+                String dbHost = "jdbc:mysql://localhost/stamboom"; 
+        String dbUsername = "root";
+        String dbPassword = "";
+        String dbName = "stamboom";
+        String driver = "com.mysql.jdbc.Driver";
+         try{
+            Class.forName(driver).newInstance();
+            conn = DriverManager.getConnection(dbHost,dbUsername,dbPassword);
+            
+            
         }
-
-        //return System.out.println("SQLState: " + ex.getSQLState());
+        catch(Exception sqle){
+            sqle.printStackTrace();
+        }
     }
-
+    
+    public static DatabaseMediator getDataSource() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+        if (db == null) {
+            db = new DatabaseMediator();  
+        }
+        //Datasource ds = new DataSource();
+        return null;
+    }
+    
     @Override
     public Administratie load() throws IOException {
         this.openConnection();
@@ -75,14 +85,18 @@ public class DatabaseMediator implements IStorageMediator {
     public void save(Administratie admin) throws IOException {
         this.openConnection();
         try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs;
             
-            rs = stmt.executeQuery("SELECT Lname FROM Customers WHERE Snum = 2001");
-            while ( rs.next() ) {
-                String lastName = rs.getString("Lname");
-                System.out.println(lastName);
-            }
+            Persoon pers = admin.getPersoon(1);
+            PreparedStatement pstatement = conn.prepareStatement("insert into personen (persoonNr,achternaam,voornamen,tussenvoegsel,geboortedatum,geboorteplaats,geslacht,ouders) values (?,?,?,?,?,?,?,?)");
+            pstatement.setString(1, ""); //lege string ivm met Auto Increment EVT normaal persoons nummer meegeven gegeneerd door de applicatie?
+            pstatement.setString(2, pers.getAchternaam());
+            pstatement.setString(3, pers.getVoornamen());
+            pstatement.setString(4, pers.getTussenvoegsel());
+            pstatement.setString(5, pers.getGebDat().toString());
+            pstatement.setString(6, pers.getGebPlaats());
+            pstatement.setString(7, pers.getGeslacht().toString());
+            pstatement.setString(8, ""); //leeg als test
+
             this.closeConnection();
             
             
