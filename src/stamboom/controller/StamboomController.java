@@ -97,13 +97,9 @@ public class StamboomController {
     
     // opgave 4
     private void initDatabaseMedium() throws IOException {
-//        if (!(storageMediator instanceof DatabaseMediator)) {
-//            Properties props = new Properties();
-//            try (FileInputStream in = new FileInputStream("database.properties")) {
-//                props.load(in);
-//            }
-//            storageMediator = new DatabaseMediator(props);
-//        }
+
+            storageMediator = new DatabaseMediator();
+
     }
     
     /**
@@ -121,7 +117,8 @@ public class StamboomController {
      * @throws IOException
      */
     public void saveToDatabase() throws IOException {
-        //todo opgave 4
+        initDatabaseMedium();
+         storageMediator.save(admin);
     }
 
 }

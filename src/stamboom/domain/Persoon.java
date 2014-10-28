@@ -33,7 +33,7 @@ public class Persoon implements Serializable {
      * geconverteerd naar kleine letters.
      *
      */
-    Persoon(int persNr, String[] vnamen, String anaam, String tvoegsel,
+    public Persoon(int persNr, String[] vnamen, String anaam, String tvoegsel,
             Calendar gebdat, String gebplaats, Geslacht g, Gezin ouderlijkgezin) {
         //todo opgave 1
         nr = persNr;
