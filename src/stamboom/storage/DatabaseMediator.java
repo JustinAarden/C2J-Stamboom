@@ -69,7 +69,7 @@ public class DatabaseMediator implements IStorageMediator {
 
     @Override
     public Administratie load() throws IOException {
-
+        this.initConnection();
         try {
 
             ArrayList<Persoon> pers = new ArrayList<Persoon>();
@@ -78,14 +78,28 @@ public class DatabaseMediator implements IStorageMediator {
             ResultSet rs = p.executeQuery();
             while (rs.next()) {
                 Calendar c = Calendar.getInstance();
-                c.clear();
-                c.setTime(rs.getDate("geboortedatum"));
-                //pers = new Persoon(rs.getInt("persoonNr"), rs.getString("voornamen").split(" "),rs.getString("achternaam"),rs.getString("tussenvoegsel"), c,rs.getString("geboorteplaats"),Geslacht.valueOf(rs.getString("geslacht")),(Gezin)rs.getObject("geslacht") );
-                adminLoader.addPersoon(Geslacht.valueOf(rs.getString("geslacht")), rs.getString("voornamen").split(" "), rs.getString("achternaam"), rs.getString("tussenvoegsel"), c, rs.getString("geboorteplaats"), null);
-                this.PersoonInGezin(rs.getInt("persoonNr"), rs.getInt("ouders"));
+                String[] vnamen = rs.getString("voornamen").split(" ");
+                String achternaam = rs.getString("achternaam");
+                String tussenvoegsel = rs.getString("tussenvoegsel");
+                java.sql.Date myDate = rs.getDate("geboortedatum");
+                String geboorteplaats = rs.getString("geboorteplaats");
+                c.setTime(myDate);
+                Geslacht geslacht;
+
+                if (rs.getString("geslacht").equals("MAN")) {
+                    geslacht = Geslacht.MAN;
+                } else {
+                    geslacht = Geslacht.VROUW;
+                }
+
+                adminLoader.addPersoon(geslacht, vnamen, achternaam, tussenvoegsel, c, geboorteplaats, null);
+
+                
+                this.PersoonInGezin(rs.getInt("persoonsNr"), rs.getInt("ouders"));
+
             }
 
-            Gezin[] gList = this.getGezinnen((Persoon[]) adminLoader.getPersonen().toArray());
+            Gezin[] gList = this.getGezinnen((Persoon[]) adminLoader.getPersonen().toArray()); //TODO ERROR!!!
 
             for (Persoon persoon : this.adminLoader.getPersonen()) {
                 for (PersonInFamily fim : this.personenmetgezin) {
@@ -110,7 +124,7 @@ public class DatabaseMediator implements IStorageMediator {
     public void save(Administratie admin) throws IOException {
         this.initConnection();
         try {
-            
+
             for (Persoon pers : admin.getPersonen()) {
                 //Persoon pers = admin.getPersoon();
                 Calendar c = Calendar.getInstance();
@@ -118,7 +132,7 @@ public class DatabaseMediator implements IStorageMediator {
                 c.setTime(pers.getGebDat().getTime());
                 PreparedStatement pstatement = conn.prepareStatement(
                         "insert into personen ("
-                        + "persoonNr,"
+                        + "persoonsNr,"
                         + "achternaam,"
                         + "voornamen,"
                         + "tussenvoegsel,"
@@ -126,22 +140,39 @@ public class DatabaseMediator implements IStorageMediator {
                         + "geboorteplaats,"
                         + "geslacht,"
                         + "ouders)"
-                        + " values "
-                        + "(?,?,?,?,?,?,?,?)"); //(1,2,3,4,5,6,7,8)
-                
-                
+                        + " VALUES "
+                        + "(?,?,?,?,?,?,?,?) "
+                        + "ON DUPLICATE KEY UPDATE "
+                        + "achternaam=?,"
+                        + "voornamen=?,"
+                        + "tussenvoegsel=?,"
+                        + "geboortedatum=?,"
+                        + "geboorteplaats=?,"
+                        + "geslacht=?,"
+                        + "ouders=?"); //(1,2,3,4,5,6,7,8)
+
                 pstatement.setInt(1, pers.getNr()); //lege string ivm met Auto Increment EVT normaal persoons nummer meegeven gegeneerd door de applicatie?
                 pstatement.setString(2, pers.getAchternaam());
                 pstatement.setString(3, pers.getVoornamen());
                 pstatement.setString(4, pers.getTussenvoegsel());
-                pstatement.setString(5, pers.getGebDat().toString());
+                pstatement.setDate(5, new java.sql.Date(pers.getGebDat().getTimeInMillis()));
 
                 pstatement.setString(6, pers.getGebPlaats());
                 pstatement.setString(7, pers.getGeslacht().toString());
-                pstatement.setInt(8, 1); //leeg als test
+                pstatement.setString(8, null); //leeg als test //TIJDELIJK!!!
+
+                // Wanneer persoon al bestaat!
+                pstatement.setString(9, pers.getAchternaam());
+                pstatement.setString(10, pers.getVoornamen());
+                pstatement.setString(11, pers.getTussenvoegsel());
+                pstatement.setDate(12, new java.sql.Date(pers.getGebDat().getTimeInMillis()));
+
+                pstatement.setString(13, pers.getGebPlaats());
+                pstatement.setString(14, pers.getGeslacht().toString());
+                pstatement.setString(15, null); //leeg als test
+
                 pstatement.execute();
 
-                
             }
             for (Gezin gezin : admin.getGezinnen()) {
                 PreparedStatement pstatement1 = conn.prepareStatement(
@@ -152,15 +183,27 @@ public class DatabaseMediator implements IStorageMediator {
                         + "huwelijksdatum,"
                         + "scheidingdatum)"
                         + " values"
-                        + "(?,?,?,?)");
+                        + "(?,?,?,?,?)"
+                        + "ON DUPLICATE KEY UPDATE "
+                        + "ouders1=?,"
+                        + "ouders2=?,"
+                        + "huwelijksdatum=?,"
+                        + "scheidingdatum=?");
                 pstatement1.setInt(1, gezin.getNr());
                 pstatement1.setInt(2, gezin.getOuder1().getNr());
                 pstatement1.setInt(3, gezin.getOuder2().getNr());
-                pstatement1.setString(4, gezin.getHuwelijksdatum().toString());
-                pstatement1.setString(5, gezin.getScheidingsdatum().toString());
-                
-                
-            this.closeConnection();
+                pstatement1.setDate(4, new java.sql.Date(gezin.getHuwelijksdatum().getTimeInMillis()));
+                pstatement1.setDate(5, new java.sql.Date(gezin.getScheidingsdatum().getTimeInMillis()));
+
+                //Wanneer gezin al bestaat of wordt geupdate!
+                pstatement1.setInt(6, gezin.getOuder1().getNr());
+                pstatement1.setInt(7, gezin.getOuder2().getNr());
+                pstatement1.setDate(8, new java.sql.Date(gezin.getHuwelijksdatum().getTimeInMillis()));
+                pstatement1.setDate(9, new java.sql.Date(gezin.getScheidingsdatum().getTimeInMillis()));
+
+                pstatement1.execute();
+
+                this.closeConnection();
             }
 
         } catch (SQLException ex) {

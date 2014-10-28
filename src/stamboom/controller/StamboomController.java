@@ -108,7 +108,8 @@ public class StamboomController {
      * @throws IOException
      */
     public void loadFromDatabase() throws IOException {
-        //todo opgave 4
+        initDatabaseMedium();
+         storageMediator.load();
     }
 
     /**
