@@ -61,6 +61,8 @@ public class DatabaseMediator implements IStorageMediator {
 
     @Override
     public Administratie load() throws IOException {
+        String name1;
+        String name2;
         this.initConnection();
         try {
 
@@ -89,6 +91,23 @@ public class DatabaseMediator implements IStorageMediator {
                 this.PersoonInGezin(rs.getInt("persoonsNr"), rs.getInt("ouders"));
 
             }
+            PreparedStatement p1 = conn.prepareStatement("Select * FROM gezinnen");
+            ResultSet rs1 = p.executeQuery();
+            while (rs.next()) {
+                Calendar c = Calendar.getInstance();
+                int ouders1 = rs1.getInt("ouders1");
+                int ouders2 = rs1.getInt("ouders2");
+                java.sql.Date myDate1 = rs.getDate("geboortedatum");
+                c.setTime(myDate1);
+                
+                
+//                if (myDate1 != null) {
+//                    name1 = 
+//                    adminLoader.addHuwelijk(ouders1, ouders2, c);
+//                    
+//                }
+            }
+
             Persoon[] pList = null;
 
             adminLoader.getPersonen().toArray(pList);
@@ -155,7 +174,7 @@ public class DatabaseMediator implements IStorageMediator {
 
                 if (pers.getOuderlijkGezin() != null) {
                     for (Gezin gezin : admin.getGezinnen()) {
-                        if (gezin.getOuder1().getNr() == pers.getNr() && gezin.getOuder1().getNr() == pers.getNr()) {
+                        if (gezin.getOuder1().getNr() == pers.getNr()) {
                             pstatement.setInt(8, gezin.getNr());
                         }
                     }
@@ -173,7 +192,7 @@ public class DatabaseMediator implements IStorageMediator {
                 if (pers.getOuderlijkGezin() != null) {
 
                     for (Gezin gezin : admin.getGezinnen()) {
-                        if (gezin.getOuder1().getNr() == pers.getNr() && gezin.getOuder1().getNr() == pers.getNr()) {
+                        if (gezin.getOuder1().getNr() == pers.getNr()) {
                             pstatement.setInt(15, gezin.getNr());
                         }
                     }
@@ -201,7 +220,13 @@ public class DatabaseMediator implements IStorageMediator {
                         + "scheidingdatum=?");
                 pstatement1.setInt(1, gezin.getNr());
                 pstatement1.setInt(2, gezin.getOuder1().getNr());
-                pstatement1.setInt(3, gezin.getOuder2().getNr());
+
+                if (gezin.getOuder2() != null) {
+                    pstatement1.setInt(3, gezin.getOuder2().getNr());
+                } else {
+                    pstatement1.setString(3, null);
+                }
+
                 if (gezin.getHuwelijksdatum() != null) {
                     pstatement1.setDate(4, new java.sql.Date(gezin.getHuwelijksdatum().getTimeInMillis()));
                 } else {
@@ -216,7 +241,12 @@ public class DatabaseMediator implements IStorageMediator {
 
                 //Wanneer gezin al bestaat of wordt geupdate!
                 pstatement1.setInt(6, gezin.getOuder1().getNr());
-                pstatement1.setInt(7, gezin.getOuder2().getNr());
+                if (gezin.getOuder2() != null) {
+                    pstatement1.setInt(7, gezin.getOuder2().getNr());
+                } else {
+                    pstatement1.setString(7, null);
+                }
+
                 if (gezin.getHuwelijksdatum() != null) {
                     pstatement1.setDate(8, new java.sql.Date(gezin.getHuwelijksdatum().getTimeInMillis()));
                 } else {
