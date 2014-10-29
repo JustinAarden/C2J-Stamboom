@@ -6,7 +6,6 @@ import stamboom.domain.*;
 import java.util.*;
 import stamboom.util.StringUtilities;
 import stamboom.controller.StamboomController;
-import stamboom.storage.DatabaseMediator;
 
 public class StamboomConsole {
 

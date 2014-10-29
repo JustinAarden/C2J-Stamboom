@@ -82,7 +82,6 @@ public class StamboomController {
             
             admin = adminObject;
             
-            
             in.close();
             stream.close();
         }
